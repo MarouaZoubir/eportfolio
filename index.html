@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maroua Zoubir - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        section {
+            background: white;
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #6e48aa;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .project-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #9d50bb;
+            background-color: #fafafa;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Maroua Zoubir</h1>
+            <div class="subtitle">Étudiante en Génie des Données | Passionnée par le Big Data et le Cloud</div>
+            <div class="contact-info">
+                +212 629215799 | marouazoubir00@gmail.com | 
+                <a href="https://linkedin.com/in/marouazoubir" style="color: white; text-decoration: underline;">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>À Propos</h2>
+            <p>
+                Actuellement étudiante en 2ème année de Génie des Données à l'ENSIAS, je me spécialise dans le traitement des données à grande échelle et les technologies Cloud. 
+                Passionnée par la transformation des données en insights actionnables, je recherche un stage de 2 à 3 mois pour appliquer mes compétences en gestion, traitement 
+                et valorisation des données dans des environnements Cloud.
+            </p>
+        </section>
+
+        <section id="education">
+            <h2>Parcours Académique</h2>
+            <h3>ENSIAS - Génie Data (2ème année)</h3>
+            <p>2024-2025 | Rabat, Maroc</p>
+            
+            <h3>Classes Préparatoires MP-MPSI</h3>
+            <p>IBN TIMIYA</p>
+            
+            <h3>Baccalauréat Sciences Mathématiques-A</h3>
+            <p>Mention Très Bien | Lycée Zerktouni, Marrakech</p>
+        </section>
+
+        <section id="experience">
+            <h2>Expérience Professionnelle</h2>
+            <div class="project-card">
+                <h3>Stagiaire Data Engineering - Neimar, Rabat</h3>
+                <p>Juin 2024 – Juillet 2024</p>
+                <ul>
+                    <li>Mise en place d'une chaîne d'acquisition de données pour des capteurs connectés dans des chambres froides</li>
+                    <li>Développement d'une API REST pour la collecte et l'envoi des données de capteurs</li>
+                    <li>Stockage et visualisation des données avec Elasticsearch et Kibana</li>
+                    <li>Utilisation de Logstash pour le nettoyage et transformation des données</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projets Réalisés</h2>
+            <div class="project-card">
+                <h3>SecureHealth Pro</h3>
+                <p>Conception d'une architecture Cloud sécurisée pour la gestion des données de santé en temps réel dans AWS</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>Prédiction des inondations avec l'apprentissage fédéré</h3>
+                <p>Développement d'un modèle distribué combinant données géospatiales et météorologiques avec protection des données locales</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>Prédicteur de prix de voitures utilisant le scraping</h3>
+                <p>Application intégrant un pipeline MLOps avec Mflow pour automatiser le scraping et la prédiction</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>Fusion d'entreprises e-commerce - Gouvernance des données</h3>
+                <p>Mise en place d'une solution de Master Data Management avec OpenMetadata</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>HyperMath</h3>
+                <p>Outil pour générer des animations expliquant des problèmes mathématiques</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Compétences Techniques</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+                <div>
+                    <h3>Langages de programmation</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>C</li>
+                        <li>Java</li>
+                        <li>SQL</li>
+                        <li>Dart</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Bases de données & Big Data</h3>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>Elasticsearch</li>
+                        <li>Hadoop</li>
+                        <li>PySpark</li>
+                        <li>HBase</li>
+                        <li>Kafka</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Outils & Technologies</h3>
+                    <ul>
+                        <li>ELK Stack (Elasticsearch, Logstash, Kibana)</li>
+                        <li>Tableau</li>
+                        <li>Power BI</li>
+                        <li>OpenMetadata</li>
+                        <li>Talend</li>
+                        <li>AWS</li>
+                        <li>Firebase</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>DevOps & autres</h3>
+                    <ul>
+                        <li>Git/GitHub</li>
+                        <li>Docker</li>
+                        <li>Jira</li>
+                        <li>Minikube</li>
+                        <li>Flutter</li>
+                        <li>HTML/CSS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages">
+            <h2>Langues</h2>
+            <ul>
+                <li>Anglais - Excellent niveau</li>
+                <li>Français - Bon niveau</li>
+                <li>Arabe - Langue maternelle</li>
+            </ul>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <li>NLP - 365 Data Science</li>
+                <li>AWS Cloud Foundations</li>
+                <li>AWS Cloud Data pipeline</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Maroua Zoubir - Tous droits réservés</p>
+        </div>
+    </footer>
+</body>
+</html>
