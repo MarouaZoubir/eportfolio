@@ -4,60 +4,343 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maroua Zoubir - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #6e48aa;
+            --secondary-color: #9d50bb;
+            --accent-color: #4776E6;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--text-color);
+            background-color: var(--light-bg);
         }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+        
         header {
-            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-            color: white;
-            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 60px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
         h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2.8em;
+            animation: fadeIn 1s ease-in-out;
         }
+        
         .subtitle {
-            font-size: 1.2em;
-            margin-top: 10px;
+            font-size: 1.3em;
+            margin-top: 15px;
+            animation: fadeIn 1.5s ease-in-out;
         }
+        
         .contact-info {
+            margin-top: 25px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        section {
+            background: var(--white);
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 2em;
+        }
+        
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+            text-align: right;
+        }
+        
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .timeline-content p {
+            margin-bottom: 0;
+        }
+        
+        /* Project Cards */
+        .project-card {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-left: 4px solid var(--secondary-color);
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .project-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .skill-category {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            background-color: #eef;
+            transform: scale(1.02);
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+        }
+        
+        #contact h2 {
+            color: var(--white);
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .contact-info-card {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .contact-info-card i {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.9);
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
             margin-top: 20px;
         }
-        section {
-            background: white;
-            margin: 20px 0;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
         }
-        h2 {
-            color: #6e48aa;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+        
+        .social-links a:hover {
+            transform: translateY(-3px) scale(1.1);
         }
-        .project-card {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-left: 4px solid #9d50bb;
-            background-color: #fafafa;
-        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
+            padding: 30px;
+            background-color: #222;
+            color: var(--white);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left, .right {
+                left: 0;
+                text-align: left;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -67,8 +350,9 @@
             <h1>Maroua Zoubir</h1>
             <div class="subtitle">Étudiante en Génie des Données | Passionnée par le Big Data et le Cloud</div>
             <div class="contact-info">
-                +212 629215799 | marouazoubir00@gmail.com | 
-                <a href="https://linkedin.com/in/marouazoubir" style="color: white; text-decoration: underline;">LinkedIn</a>
+                <a href="#contact" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 30px; transition: all 0.3s ease;">
+                    <i class="fas fa-envelope"></i> Contactez-moi
+                </a>
             </div>
         </div>
     </header>
@@ -83,29 +367,44 @@
             </p>
         </section>
 
-        <section id="education">
-            <h2>Parcours Académique</h2>
-            <h3>ENSIAS - Génie Data (2ème année)</h3>
-            <p>2024-2025 | Rabat, Maroc</p>
-            
-            <h3>Classes Préparatoires MP-MPSI</h3>
-            <p>IBN TIMIYA</p>
-            
-            <h3>Baccalauréat Sciences Mathématiques-A</h3>
-            <p>Mention Très Bien | Lycée Zerktouni, Marrakech</p>
-        </section>
-
-        <section id="experience">
-            <h2>Expérience Professionnelle</h2>
-            <div class="project-card">
-                <h3>Stagiaire Data Engineering - Neimar, Rabat</h3>
-                <p>Juin 2024 – Juillet 2024</p>
-                <ul>
-                    <li>Mise en place d'une chaîne d'acquisition de données pour des capteurs connectés dans des chambres froides</li>
-                    <li>Développement d'une API REST pour la collecte et l'envoi des données de capteurs</li>
-                    <li>Stockage et visualisation des données avec Elasticsearch et Kibana</li>
-                    <li>Utilisation de Logstash pour le nettoyage et transformation des données</li>
-                </ul>
+        <section id="timeline">
+            <h2>Mon Parcours</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>ENSIAS - Génie Data (2ème année)</h3>
+                        <p>2024-2025 | Rabat, Maroc</p>
+                        <p>Spécialisation en traitement de données à grande échelle et technologies Cloud</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Stage Data Engineering - Neimar</h3>
+                        <p>Juin 2024 – Juillet 2024 | Rabat, Maroc</p>
+                        <p>Mise en place d'une chaîne d'acquisition de données pour capteurs connectés</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>ENSIAS - Génie Data (1ère année)</h3>
+                        <p>2023-2024 | Rabat, Maroc</p>
+                        <p>Introduction aux systèmes distribués et bases de données avancées</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Classes Préparatoires MP-MPSI</h3>
+                        <p>IBN TIMIYA</p>
+                        <p>Formation intensive en mathématiques et physique</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Baccalauréat Sciences Mathématiques-A</h3>
+                        <p>Lycée Zerktouni, Marrakech</p>
+                        <p>Mention Très Bien</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -114,102 +413,193 @@
             <div class="project-card">
                 <h3>SecureHealth Pro</h3>
                 <p>Conception d'une architecture Cloud sécurisée pour la gestion des données de santé en temps réel dans AWS</p>
+                <div class="tech-tags">
+                    <span class="tag">AWS</span>
+                    <span class="tag">Security</span>
+                    <span class="tag">Cloud</span>
+                </div>
             </div>
             
             <div class="project-card">
                 <h3>Prédiction des inondations avec l'apprentissage fédéré</h3>
                 <p>Développement d'un modèle distribué combinant données géospatiales et météorologiques avec protection des données locales</p>
+                <div class="tech-tags">
+                    <span class="tag">Federated Learning</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">GeoData</span>
+                </div>
             </div>
             
             <div class="project-card">
                 <h3>Prédicteur de prix de voitures utilisant le scraping</h3>
                 <p>Application intégrant un pipeline MLOps avec Mflow pour automatiser le scraping et la prédiction</p>
+                <div class="tech-tags">
+                    <span class="tag">MLOps</span>
+                    <span class="tag">Scraping</span>
+                    <span class="tag">MLflow</span>
+                </div>
             </div>
             
             <div class="project-card">
                 <h3>Fusion d'entreprises e-commerce - Gouvernance des données</h3>
                 <p>Mise en place d'une solution de Master Data Management avec OpenMetadata</p>
+                <div class="tech-tags">
+                    <span class="tag">Data Governance</span>
+                    <span class="tag">OpenMetadata</span>
+                    <span class="tag">MDM</span>
+                </div>
             </div>
             
             <div class="project-card">
                 <h3>HyperMath</h3>
                 <p>Outil pour générer des animations expliquant des problèmes mathématiques</p>
+                <div class="tech-tags">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Animation</span>
+                    <span class="tag">Education</span>
+                </div>
             </div>
         </section>
 
         <section id="skills">
             <h2>Compétences Techniques</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
-                <div>
+            <div class="skills-grid">
+                <div class="skill-category">
                     <h3>Langages de programmation</h3>
                     <ul>
-                        <li>Python</li>
-                        <li>C</li>
-                        <li>Java</li>
-                        <li>SQL</li>
-                        <li>Dart</li>
+                        <li><i class="fas fa-check-circle"></i> Python (Avancé)</li>
+                        <li><i class="fas fa-check-circle"></i> Java (Intermédiaire)</li>
+                        <li><i class="fas fa-check-circle"></i> SQL (Avancé)</li>
+                        <li><i class="fas fa-check-circle"></i> Dart (Intermédiaire)</li>
+                        <li><i class="fas fa-check-circle"></i> C (Bases)</li>
                     </ul>
                 </div>
-                <div>
-                    <h3>Bases de données & Big Data</h3>
+                <div class="skill-category">
+                    <h3>Big Data & Cloud</h3>
                     <ul>
-                        <li>MySQL</li>
-                        <li>Elasticsearch</li>
-                        <li>Hadoop</li>
-                        <li>PySpark</li>
-                        <li>HBase</li>
-                        <li>Kafka</li>
+                        <li><i class="fas fa-check-circle"></i> Hadoop/Spark</li>
+                        <li><i class="fas fa-check-circle"></i> AWS (EC2, S3, Lambda)</li>
+                        <li><i class="fas fa-check-circle"></i> ELK Stack</li>
+                        <li><i class="fas fa-check-circle"></i> Kafka</li>
+                        <li><i class="fas fa-check-circle"></i> Docker/Kubernetes</li>
                     </ul>
                 </div>
-                <div>
-                    <h3>Outils & Technologies</h3>
+                <div class="skill-category">
+                    <h3>Data Science & BI</h3>
                     <ul>
-                        <li>ELK Stack (Elasticsearch, Logstash, Kibana)</li>
-                        <li>Tableau</li>
-                        <li>Power BI</li>
-                        <li>OpenMetadata</li>
-                        <li>Talend</li>
-                        <li>AWS</li>
-                        <li>Firebase</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>DevOps & autres</h3>
-                    <ul>
-                        <li>Git/GitHub</li>
-                        <li>Docker</li>
-                        <li>Jira</li>
-                        <li>Minikube</li>
-                        <li>Flutter</li>
-                        <li>HTML/CSS</li>
+                        <li><i class="fas fa-check-circle"></i> Machine Learning</li>
+                        <li><i class="fas fa-check-circle"></i> NLP</li>
+                        <li><i class="fas fa-check-circle"></i> Tableau/Power BI</li>
+                        <li><i class="fas fa-check-circle"></i> Pandas/Numpy</li>
+                        <li><i class="fas fa-check-circle"></i> Scikit-learn</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="languages">
-            <h2>Langues</h2>
-            <ul>
-                <li>Anglais - Excellent niveau</li>
-                <li>Français - Bon niveau</li>
-                <li>Arabe - Langue maternelle</li>
-            </ul>
-        </section>
-
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <ul>
-                <li>NLP - 365 Data Science</li>
-                <li>AWS Cloud Foundations</li>
-                <li>AWS Cloud Data pipeline</li>
-            </ul>
+        <section id="contact">
+            <h2>Contactez-moi</h2>
+            <div class="contact-container">
+                <div class="contact-info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>marouazoubir00@gmail.com</p>
+                    
+                    <i class="fas fa-phone"></i>
+                    <h3>Téléphone</h3>
+                    <p>+212 629215799</p>
+                    
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Localisation</h3>
+                    <p>Rabat, Maroc</p>
+                    
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/marouazoubir" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/MarouaZoubir" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Envoyer le message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
         </section>
     </div>
 
     <footer>
         <div class="container">
             <p>&copy; 2024 Maroua Zoubir - Tous droits réservés</p>
+            <p>Développé avec <i class="fas fa-heart" style="color: #ff6b6b;"></i> par Maroua Zoubir</p>
         </div>
     </footer>
+
+    <script>
+        // Simple form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message! Je vous répondrai dès que possible.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Initialize sections with opacity 0 for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        // Trigger initial animation
+        setTimeout(() => {
+            document.querySelectorAll('section').forEach((section, index) => {
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }, 500);
+    </script>
 </body>
 </html>
